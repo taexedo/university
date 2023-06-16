@@ -3,11 +3,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const initDb = require('./db/dbInit');
+const cors = require('cors');
 initDb();
 const studentsRouter = require('./routes/students');
 
 const app = express();
-
+app.use(cors({origin: 'http://localhost:4200'}));
 // Applying middlewares
 app.use(logger('dev'));
 app.use(express.json());

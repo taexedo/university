@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const StudentSchema = require('../models/student')
+const { v4: uuidv4 } = require('uuid');
 
 router.get('/', async (req, res) => {
   try {
@@ -12,10 +13,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const student = new Student({
+  const student = new StudentSchema({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    uniqueNumber: req.body.uniqueNumber,
+    uniqueNumber: uuidv4(),
     facultyNumber: req.body.facultyNumber,
     birthDate: req.body.birthDate
   });
@@ -28,10 +29,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
   try {
-    const updatedStudent = await Student.updateOne(
-        { _id: req.params.id },
+    const updatedStudent = await StudentSchema.updateOne(
+        { _id: req.body._id },
         { $set: req.body }
     );
     res.json(updatedStudent);
@@ -41,8 +42,9 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
+  console.log("req.params.id", req.params.id)
   try {
-    const removedStudent = await Student.remove({ _id: req.params.id });
+    const removedStudent = await StudentSchema.deleteOne({ _id: req.params.id });
     res.json(removedStudent);
   } catch (err) {
     res.status(500).json({ message: err.message });
