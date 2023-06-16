@@ -2,7 +2,7 @@
   padding: 2rem;
 }
 
-.dashboard-container > h2, h4, h1 {
+.dashboard-container > h2, h4, h3, h1 {
   margin-bottom: 1rem;
   text-align: center;
 }
