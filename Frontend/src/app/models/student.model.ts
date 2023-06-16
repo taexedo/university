@@ -2,8 +2,8 @@ export interface StudentModel {
   _id: string,
   firstName: string,
   lastName: string,
-  uniqueNumber: number,
-  facultyNumber: number,
+  uniqueNumber: string,
+  facultyNumber: string,
   birthDate: Date,
   __v: number
 }

@@ -16,7 +16,7 @@ const initDb = async () => {
                 firstName: 'Vasil',
                 lastName: 'Dudinski',
                 uniqueNumber: "12345",
-                facultyNumber: 1601682047,
+                facultyNumber: "1601682047",
                 birthDate: new Date('1996-02-29')
             });
 

@@ -20,7 +20,7 @@
     </div>
     <div class="form-input-container">
       <label for="facultyNumber">Faculty Number:</label>
-      <input type="number" id="facultyNumber" formControlName="facultyNumber" class="create-edit-dialog-form-input"
+      <input type="text" id="facultyNumber" formControlName="facultyNumber" class="create-edit-dialog-form-input"
              placeholder="Enter faculty number">
       <small class="error-message"
              *ngIf="editForm.get('facultyNumber')?.invalid && editForm.get('facultyNumber')?.touched">
