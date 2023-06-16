@@ -42,7 +42,6 @@ router.put('/', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  console.log("req.params.id", req.params.id)
   try {
     const removedStudent = await StudentSchema.deleteOne({ _id: req.params.id });
     res.json(removedStudent);
