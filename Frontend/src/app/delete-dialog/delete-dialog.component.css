@@ -1,0 +1,38 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  margin: 0 0 1rem;
+}
+
+.modal p {
+  margin: 0 0 2rem;
+}
+
+.button-container{
+  display: flex;
+  justify-content: right;
+}
+
+.modal button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+
+.modal button:last-child {
+  margin-right: 0;
+}
+
+
+

@@ -1,0 +1,23 @@
+
+.student-list-container {
+  padding: 3rem;
+}
+
+.table-header {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.table-header p {
+  width: 200px
+}
+.no-search-result-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+
+

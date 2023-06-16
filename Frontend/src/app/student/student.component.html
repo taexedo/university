@@ -1,0 +1,21 @@
+<div *ngIf="student" class="student">
+  <p>
+    {{student.firstName}}
+  </p>
+  <p>
+    {{student.lastName}}
+  </p>
+  <p>
+    {{student.facultyNumber}}
+  </p>
+  <p>
+    {{student.birthDate | date}}
+  </p>
+    <button class="secondary-button student-button" (click)="editIconClick(student)">
+      <i class="fas fa-edit"></i>
+    </button>
+
+    <button class="secondary-button student-button" (click)="deleteIconClick(student)">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+</div>

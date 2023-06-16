@@ -1,0 +1,18 @@
+.student {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  background-color: #EEEEEE;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.student p {
+  width: 200px
+}
+
+.student-button {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+

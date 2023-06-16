@@ -1,0 +1,13 @@
+.student-list-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.student-list-header input {
+  padding: 0.5rem;
+  width: 350px;
+}
+
+.student-list-header button {
+  padding: 0.5rem;
+}

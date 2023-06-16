@@ -1,0 +1,41 @@
+<div class="create-edit-dialog-container">
+  <h2 class="create-edit-dialog-title">{{ initialFormData?._id ? 'Edit' : 'Create' }} Student</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onConfirm()" class="create-edit-dialog-form">
+
+    <div class="form-input-container">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName" class="create-edit-dialog-form-input"
+             placeholder="Enter first name">
+      <small class="error-message"
+             *ngIf="editForm.controls['firstName'].invalid && editForm.controls['firstName'].touched">First name is
+        required</small>
+    </div>
+    <div class="form-input-container">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName" class="create-edit-dialog-form-input"
+             placeholder="Enter last name">
+      <small class="error-message"
+             *ngIf="editForm.controls['lastName'].invalid && editForm.controls['lastName'].touched">Last name is
+        required</small>
+    </div>
+    <div class="form-input-container">
+      <label for="facultyNumber">Faculty Number:</label>
+      <input type="number" id="facultyNumber" formControlName="facultyNumber" class="create-edit-dialog-form-input"
+             placeholder="Enter faculty number">
+      <small class="error-message"
+             *ngIf="editForm.controls['facultyNumber'].invalid && editForm.controls['facultyNumber'].touched">Faculty
+        number is required</small>
+    </div>
+    <div class="form-input-container">
+      <label for="birthDate">Birth Date:</label>
+      <input type="date" id="birthDate" formControlName="birthDate" class="create-edit-dialog-form-input">
+      <small class="error-message"
+             *ngIf="editForm.controls['birthDate'].invalid && editForm.controls['birthDate'].touched">Birth date is
+        required</small>
+    </div>
+    <div class="button-container">
+      <button type="button" (click)="onCancel()" class="create-edit-dialog-form-button">Cancel</button>
+      <button type="submit" class="create-edit-dialog-form-button">Confirm</button>
+    </div>
+  </form>
+</div>

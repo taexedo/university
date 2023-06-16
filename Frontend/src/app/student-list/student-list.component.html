@@ -1,0 +1,25 @@
+
+<h1 style="text-align: center; margin-top: 1rem">Students</h1>
+<app-error-component *ngIf="isError"/>
+
+<div *ngIf="!isError" class="student-list-container">
+
+  <app-student-list-header (search)="searchText=$event" (onCreateButtonClick)="onCreateButtonClick()"/>
+  <div *ngIf="!filteredStudents.length && !isLoading && searchText !== ''" class="no-search-result-container"> <h3>No result found for this search!</h3> </div>
+  <div *ngIf="!filteredStudents.length && !isLoading && searchText === ''" class="no-search-result-container"> <h3>There is no students in the database!</h3> </div>
+  <div *ngIf="filteredStudents.length && !isLoading">
+    <div class="table-header">
+      <p>First Name</p>
+      <p>Last Name</p>
+      <p>Faculty Number</p>
+      <p>Birthday</p>
+    </div>
+    <div *ngFor="let student of filteredStudents">
+      <app-student [student]="student" (onDeleteIconClick)="onDeleteIconClick($event)" (onEditIconClick)="onEditIconClick($event)"/>
+    </div>
+  </div>
+</div>
+
+<app-delete-dialog *ngIf="isDeleteModalVisible" (confirm)="deleteAction()" (cancel)="onDialogCancelClick()"/>
+<app-create-edit-dialog *ngIf="isCreateEditModalVisible" (confirm)="editCreateAction($event)" (cancel)="onDialogCancelClick()"  [initialFormData]="selectedStudent" />
+
