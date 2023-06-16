@@ -23,8 +23,14 @@
       <input type="number" id="facultyNumber" formControlName="facultyNumber" class="create-edit-dialog-form-input"
              placeholder="Enter faculty number">
       <small class="error-message"
-             *ngIf="editForm.controls['facultyNumber'].invalid && editForm.controls['facultyNumber'].touched">Faculty
-        number is required</small>
+             *ngIf="editForm.get('facultyNumber')?.invalid && editForm.get('facultyNumber')?.touched">
+        <ng-container *ngIf="editForm.get('facultyNumber')?.errors?.['required']">
+          Faculty number is required.
+        </ng-container>
+        <ng-container *ngIf="editForm.get('facultyNumber')?.errors?.['invalidFacultyNumber']">
+          Faculty number is invalid.
+        </ng-container>
+      </small>
     </div>
     <div class="form-input-container">
       <label for="birthDate">Birth Date:</label>

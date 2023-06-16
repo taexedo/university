@@ -53,6 +53,7 @@ export class StudentListComponent implements OnInit{
         this.isCreateEditModalVisible = false;
         document.body.classList.remove('modal-open');
         this.selectedStudent = null;
+        this.searchText = ""
         this.getStudents()
       })
     } else {
@@ -60,6 +61,7 @@ export class StudentListComponent implements OnInit{
         this.isCreateEditModalVisible = false;
         document.body.classList.remove('modal-open');
         this.selectedStudent = null;
+        this.searchText = ""
         this.getStudents()
       })
     }
@@ -71,8 +73,8 @@ export class StudentListComponent implements OnInit{
         this.isDeleteModalVisible = false;
         document.body.classList.remove('modal-open');
         this.selectedStudent = null;
-        this.getStudents()
         this.searchText = ""
+        this.getStudents()
       })
     }
   }

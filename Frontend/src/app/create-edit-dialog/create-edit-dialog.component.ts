@@ -1,6 +1,6 @@
 import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {StudentModel} from "../models/student.model";
+import {FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'app-create-edit-dialog',
@@ -9,6 +9,7 @@ import {StudentModel} from "../models/student.model";
 })
 export class CreateEditDialogComponent implements OnInit {
   @Input() initialFormData: StudentModel | null = null
+  @Input() studentsList: StudentModel[] | [] = []
   @Output() confirm = new EventEmitter()
   @Output() cancel = new EventEmitter()
 
@@ -18,7 +19,7 @@ export class CreateEditDialogComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      facultyNumber: ['', Validators.required],
+      facultyNumber: ['', this.facultyNumberValidator()],
       birthDate: ['', Validators.required],
     });
   }
@@ -51,5 +52,15 @@ export class CreateEditDialogComponent implements OnInit {
 
   onCancel() {
     this.cancel.emit()
+  }
+
+  facultyNumberValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value === '') {
+        return {required: true};
+      }
+      const isFacultyNumberInvalid = this.studentsList.some(student => student.facultyNumber === control.value && student?._id !== this.initialFormData?._id);
+      return isFacultyNumberInvalid ? {invalidFacultyNumber: true} : null;
+    };
   }
 }

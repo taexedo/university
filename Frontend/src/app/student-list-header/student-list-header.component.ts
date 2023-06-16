@@ -11,7 +11,6 @@ export class StudentListHeaderComponent {
   @Input() searchText: string = "";
 
   updateSearchText(value: string) {
-    this.searchText = value
     this.search.emit(value);
   }
 
