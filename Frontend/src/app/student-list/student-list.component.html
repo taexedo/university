@@ -4,7 +4,7 @@
 
 <div *ngIf="!isError" class="student-list-container">
 
-  <app-student-list-header (search)="searchText=$event" [searchText]="searchText" (onCreateButtonClick)="onCreateButtonClick()"/>
+  <app-student-list-header (search)="searchText=$event" [searchText]="searchText" (onCreateButtonClick)="onCreateButtonClick()" [isSearchDisabled]="!filteredStudents.length && !isLoading && searchText === ''"/>
   <div *ngIf="!filteredStudents.length && !isLoading && searchText !== ''" class="no-search-result-container"> <h3>No result found for this search!</h3> </div>
   <div *ngIf="!filteredStudents.length && !isLoading && searchText === ''" class="no-search-result-container"> <h3>There is no students in the database!</h3> </div>
   <div *ngIf="filteredStudents.length && !isLoading">

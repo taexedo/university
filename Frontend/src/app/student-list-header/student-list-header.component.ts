@@ -9,6 +9,7 @@ export class StudentListHeaderComponent {
   @Output() search = new EventEmitter<string>();
   @Output() onCreateButtonClick = new EventEmitter<string>();
   @Input() searchText: string = "";
+  @Input() isSearchDisabled: Boolean = false;
 
   updateSearchText(value: string) {
     this.search.emit(value);
